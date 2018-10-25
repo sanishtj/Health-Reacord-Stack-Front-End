@@ -1,4 +1,25 @@
-h1 {
-    color: red;
+.fade-enter{
+    opacity: 0; 
+ }
 
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  visibility: visible;
+  transition:visibility 5000ms linear 5000ms, opacity 5000ms linear 5000ms;
 }
+.fade-exit {
+    opacity:1;
+    visibility: visible;
+}
+
+.fade-exit.fade-exit-active {
+    opacity:0;
+    visibility: hidden;
+    transition: visibility 3000ms linear,opacity 3000ms linear;
+}
+
+.fade-exit-done{
+    opacity: 0;
+    visibility: hidden;
+}
+
