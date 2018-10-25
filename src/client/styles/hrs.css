@@ -1,3 +1,9 @@
+.page{
+    position: absolute;   
+    left: 0;
+    right: 0;
+}
+
 .fade-enter{
     opacity: 0; 
  }
@@ -5,7 +11,7 @@
 .fade-enter.fade-enter-active {
   opacity: 1;
   visibility: visible;
-  transition:visibility 5000ms linear 5000ms, opacity 5000ms linear 5000ms;
+  transition:visibility 500ms linear 500ms, opacity 500ms linear 500ms;
 }
 .fade-exit {
     opacity:1;
@@ -15,7 +21,7 @@
 .fade-exit.fade-exit-active {
     opacity:0;
     visibility: hidden;
-    transition: visibility 3000ms linear,opacity 3000ms linear;
+    transition: visibility 300ms linear,opacity 300ms linear;
 }
 
 .fade-exit-done{

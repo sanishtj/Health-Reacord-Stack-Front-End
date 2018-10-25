@@ -1,19 +1,15 @@
-import React from "react";
-import { Route, Link, Switch } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import React from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import memberlistPage from "../authenticated/members/memberlistPage";
-import memberdetailsPage from "../authenticated/members/memberdetailsPage";
-import addmemberPage from "../authenticated/members/addmemberPage";
-import updatememberPage from "../authenticated/members/updatememberPage";
-import medicalhistorylistPage from "../authenticated/medicalhistory/medicalhistorylistPage";
-import addmedicalhistoryPage from "../authenticated/medicalhistory/addmedicalhistoryPage";
-import sharemedicalhistoryPage from "../authenticated/medicalhistory/sharemedicalhistoryPage";
-import animateSwitch from "./animateSwitch";
-import SlideOut from "./SlideOut";
-import PageShell from "./PageShell";
+import memberlistPage from '../authenticated/members/memberlistPage';
+import memberdetailsPage from '../authenticated/members/memberdetailsPage';
+import addmemberPage from '../authenticated/members/addmemberPage';
+import updatememberPage from '../authenticated/members/updatememberPage';
+import medicalhistorylistPage from '../authenticated/medicalhistory/medicalhistorylistPage';
+import addmedicalhistoryPage from '../authenticated/medicalhistory/addmedicalhistoryPage';
+import sharemedicalhistoryPage from '../authenticated/medicalhistory/sharemedicalhistoryPage';
 
-const SwitchWithSlide = animateSwitch(Switch, SlideOut);
 
 const Container = () => (
   <div className="row">
@@ -34,26 +30,14 @@ const Container = () => (
           <TransitionGroup>
             <CSSTransition key={location.key} classNames="fade" timeout={10000}>
               <Switch location={location}>
-                <Route
-                  exact
-                  path="/"
-                  component={memberlistPage}
-                />
-                <Route
-                  exact
-                  path="/members"
-                  component={memberlistPage}
-                />
+                <Route exact path="/" component={memberlistPage} />
+                <Route exact path="/members" component={memberlistPage} />
                 <Route
                   exact
                   path="/members/:memberid"
                   component={memberdetailsPage}
                 />
-                <Route
-                  exact
-                  path="/member/add"
-                  component={addmemberPage}
-                />
+                <Route exact path="/member/add" component={addmemberPage} />
                 <Route
                   exact
                   path="/members/update/:memberid"
