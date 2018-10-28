@@ -1,19 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import authenticatedmasterPage from './authenticated/authenticatedmasterPage';
 import PrivateRoute from './common/PrivateRoute';
 import unauthenticatedmasterPage from './unauthenticated/unauthenticatedmasterPage';
 
-
 const App = () => (
-  <Router>
-    <div>
+  <Switch>
+    <React.Fragment>
       <PrivateRoute path="/" component={authenticatedmasterPage} />
       <Route path="/login" component={unauthenticatedmasterPage} />
-    </div>
-  </Router>
+    </React.Fragment>
+  </Switch>
 );
-
 
 export default App;
