@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import $ from 'jquery';
-// import 'bootstrap/dist/js/bootstrap.bundle.min';
+// // import $ from 'jquery';
+// // import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../styles/hrs.css';
 
 import React from 'react';
