@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import * as memberActions from '../../../actions/memberActions';
 
 class memberlistPage extends React.PureComponent {
   constructor(props) {
@@ -6,33 +10,39 @@ class memberlistPage extends React.PureComponent {
     this.state = {};
   }
 
+  componentDidMount() {
+    // TODO: This needs to be done using shouldcomponetupdate
+    if(!this.props.members || this.props.members.length == 0)
+    this.props.actions.fetchMembers();
+  }
+
+  memberRow(member, index) {
+    return <div key={index}>{member.FullName}</div>;
+  }
+
   render() {
     return (
       <div className="page">
-      member list Page
-        <p>
-      This paragraph
-      contains a lot of lines
-      in the source code,
-      but the browser
-      ignores it.
-        </p>
-
-        <p>
-      This paragraph
-      contains      a lot of spaces
-      in the source     code,
-      but the    browser
-      ignores it.
-        </p>
-
-        <p>
-      The number of lines in a paragraph depends on the size of the browser window. If you resize
-      the browser window, the number of lines in this paragraph will change.
-        </p>
+        <div>{this.props.members.map(this.memberRow)}</div>
       </div>
     );
   }
 }
 
-export default memberlistPage;
+function mapStatetoProps(state) {
+  return {
+    members: state.members,
+  };
+}
+
+function mapDispatchtoProps(dispatch) {
+  return {
+    actions: bindActionCreators(memberActions, dispatch),
+  };
+}
+
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps,
+)(memberlistPage);

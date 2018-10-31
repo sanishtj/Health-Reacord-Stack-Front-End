@@ -25,17 +25,11 @@ class addmemberPage extends React.PureComponent {
     this.props.actions.addMember(this.state.member);
   }
 
-  memberRow(member,index)
-  {
-    return <div key={index}>{member.FullName}</div>;
-  }
 
   render() {
     return (
-      <div>
-        <div>
-          {this.props.members.map(this.memberRow)}
-        </div>
+      
+        
         <form className="needs-validation page" noValidate>
           <div className="form-row">
             <div className="col-md-6 mb-3">
@@ -58,10 +52,11 @@ class addmemberPage extends React.PureComponent {
             type="submit"
             onClick={this.addMember}
           >
+
             Submit form
-          </button>
+</button>
         </form>
-      </div>
+     
     );
   }
 }
@@ -78,4 +73,7 @@ function mapDispatchtoProps(dispatch) {
   };
 }
 
-export default connect(mapStatetoProps, mapDispatchtoProps)(addmemberPage);
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps,
+)(addmemberPage);
