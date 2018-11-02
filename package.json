@@ -4,7 +4,8 @@
   "description": "UI part off the health recod stack project.",
   "main": "index.js",
   "now": {
-    "name": "Health-Record-Stack"
+    "name": "Health-Record-Stack",
+    "alias":"HealthRecordStack"
   },
   "scripts": {
     "dev": "nodemon --exec babel-node -- src/server/server.js",
