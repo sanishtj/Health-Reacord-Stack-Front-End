@@ -5,7 +5,7 @@
   "main": "index.js",
   "now": {
     "name": "Health-Record-Stack",
-    "alias":"HealthRecordStack"
+    "alias":"dev.healthrecordstack"
   },
   "scripts": {
     "dev": "nodemon --exec babel-node -- src/server/server.js",
