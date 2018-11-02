@@ -5,13 +5,13 @@
   "main": "index.js",
   "now": {
     "name": "Health-Record-Stack",
-    "alias":"dev.healthrecordstack"
+    "alias":"healthrecordstack"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node -- src/server/server.js",
-    "webpack": "webpack -wd",
-    "build-webpack": "webpack -p",
-    "build": "npm run build-webpack && babel src -d build --copy-files",
+    "dev": "npm run dev-webpack && nodemon --exec babel-node -- src/server/server.js",
+    "dev-webpack": "webpack --config webpack.config.js -wd",
+    "prod-webpack": "webpack --config webpack.config.prod.js -p",
+    "build": "npm run prod-webpack && babel src -d build --copy-files",
     "start": "NODE_ENV=production node build/server/server.js"
   },
   "babel": {
