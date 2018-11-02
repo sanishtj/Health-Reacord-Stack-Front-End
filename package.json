@@ -3,6 +3,9 @@
   "version": "2.1.0",
   "description": "UI part off the health recod stack project.",
   "main": "index.js",
+  "now": {
+    "name": "Health-Record-Stack"
+  },
   "scripts": {
     "dev": "nodemon --exec babel-node -- src/server/server.js",
     "webpack": "webpack -wd",
