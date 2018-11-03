@@ -13,7 +13,7 @@ class authenticatedmasterPage extends React.PureComponent {
   render() {
     return (
       <div className="container">
-        <Header />       
+        <Header />
         <Container />
         <Footer />
       </div>

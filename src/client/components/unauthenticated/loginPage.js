@@ -16,19 +16,16 @@ class loginPage extends React.Component {
         redirectToReferrer: true,
       }));
     });
-  }
+  };
 
   render() {
-    const { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer === true) {
-      return <Redirect to="/" />;
-    }
-
     return (
       <div>
-        <p>You must log in to view the page</p>
-        <button type="button" onClick={this.login}>Log in</button>
+        <div id="topframe">
+          {/* <img src={import('../../images/healthrecordstacklogintopframe.jpg')} alt="sdfsdf sdfs" /> */}
+        </div>
+        <div id="middleframe" className="whitecontainercolor">ds</div>
+        <div id="bottomframe">dsf</div>
       </div>
     );
   }

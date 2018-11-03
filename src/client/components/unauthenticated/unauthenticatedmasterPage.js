@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import registerPage from './registerPage';
-import loginPage from './loginPage';
-import forgotpasswordPage from './forgotpasswordPage';
+
+import Header from '../common/Header';
+import Footer from '../common/Footer';
+import UnAuthenticatedContainer from './UnAuthenticatedContainer';
+
 
 class unauthenticatedmasterPage extends React.PureComponent {
   constructor(props) {
@@ -13,9 +14,9 @@ class unauthenticatedmasterPage extends React.PureComponent {
   render() {
     return (
       <div className="container">
-        <Route path="/" component={loginPage} />
-        <Route exact path="/register" component={registerPage} />
-        <Route exact path="/forgotpassword" component={forgotpasswordPage} />
+        <Header />
+        <UnAuthenticatedContainer />
+        <Footer />
       </div>
     );
   }
