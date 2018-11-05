@@ -50,8 +50,9 @@
 
 .header_title {
     line-height: 1.2;
-    max-width: 600px;
+    max-width: 615px;
     text-transform: capitalize;
+    margin: 0 10px 10px;
 }
 
 .btn {
@@ -174,4 +175,8 @@
 
   .pr-24, .px-24{
     padding-right: 6rem!important;
+  }
+
+  .mb-20{
+    margin-bottom: 20px;
   }

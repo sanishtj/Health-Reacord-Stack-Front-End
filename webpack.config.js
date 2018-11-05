@@ -21,6 +21,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(jpe?g|png|gif|svg|pdf|ico)$/,
+        use: [
+          'file-loader?name=images/[name].[ext]',
+          'image-webpack-loader',
+        ],
+      },
+      {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
@@ -34,13 +41,6 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader' },
-        ],
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg|pdf|ico)$/,
-        use: [
-          'file-loader?name=images/[name].[ext]',
-          'image-webpack-loader',
         ],
       },
     ],
