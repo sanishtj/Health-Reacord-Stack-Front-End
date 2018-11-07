@@ -30,13 +30,15 @@
       "transform-object-assign",
       "transform-class-properties",
       "transform-object-rest-spread",
-      ["babel-plugin-transform-require-ignore",
-      {
-        "extensions": [
-          ".png",
-          ".jpg"
-        ]
-      }]
+      [
+        "babel-plugin-transform-require-ignore",
+        {
+          "extensions": [
+            ".png",
+            ".jpg"
+          ]
+        }
+      ]
     ]
   },
   "keywords": [

@@ -48,7 +48,7 @@ class loginPage extends React.Component {
           <div className="row">
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mb-20">
               <img
-                src="../../images/FamilyHealth.png"
+                src="/images/FamilyHealth.png"
                 alt="add family members"
                 height="200px"
                 width="350px"
