@@ -21,11 +21,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(jpe?g|png|gif|svg|pdf|ico)$/,
+        test: /\.(jpe?g|png|gif|pdf|ico)$/,
         use: [
           'file-loader?name=images/[name].[ext]',
           'image-webpack-loader',
         ],
+      },
+      {
+        test: /\.(ttf|eot|svg|woff|woff2)(\?.*$|$)/,
+        use: 'file-loader?name=fonts/[name].[ext]',
       },
       {
         test: /\.js$/,

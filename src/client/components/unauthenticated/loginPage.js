@@ -1,14 +1,17 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 
 import fakeAuth from './fakeAuth';
-// import familyHealth from '../../images/FamilyHealth.png';
+import MemberManageSteps from './presentational/memberManageSteps';
 
 class loginPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { redirectToReferrer: false };
+    // eslint-disable-next-line react/no-unused-state
+    this.state = { redirectToReferrer: false, showMemberManage: false };
     this.login = this.login.bind(this);
+    this.showMemberManage = this.showMemberManage.bind(this);
+    this.hideMemberManage = this.hideMemberManage.bind(this);
   }
 
   login = () => {
@@ -17,6 +20,18 @@ class loginPage extends React.Component {
         redirectToReferrer: true,
       }));
     });
+  };
+
+  showMemberManage = () => {
+    this.setState(() => ({
+      showMemberManage: true,
+    }));
+  };
+
+  hideMemberManage = () => {
+    this.setState(() => ({
+      showMemberManage: false,
+    }));
   };
 
   render() {
@@ -69,12 +84,20 @@ class loginPage extends React.Component {
                     'as five to restrict commercial uses. You are allowed to add, update, and remove your family members.'
                   }
                 </p>
-                <button type="button" className="btn btn-custom-1 d-none d-md-block d-lg-block">
+                <button
+                  type="button"
+                  onClick={this.showMemberManage}
+                  className="btn btn-custom-1 d-none d-md-block d-lg-block"
+                >
                   {'view more >'}
                 </button>
               </div>
             </div>
           </div>
+          {this.state.showMemberManage ? (
+            <MemberManageSteps hideMemberManage={this.hideMemberManage} />
+          ) : null}
+
           <div className="row">
             <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 order-2 order-sm-2 order-md-1 order-lg-1 order-xl-1">
               <div className="py-3 px-2">
@@ -88,7 +111,10 @@ class loginPage extends React.Component {
                     'insurence and most importanly MEDICAL RECORDS along with basic informations like initial symptopns'
                   }
                 </p>
-                <button type="button" className="btn btn-custom-1 d-none d-md-block d-lg-block">
+                <button
+                  type="button"
+                  className="btn btn-custom-1 d-none d-md-block d-lg-block"
+                >
                   {'view more >'}
                 </button>
               </div>
@@ -127,7 +153,10 @@ class loginPage extends React.Component {
                     'You are allowed to edit history or add more notes in the mail before you mail.'
                   }
                 </p>
-                <button type="button" className="btn btn-custom-1 d-none d-md-block d-lg-block">
+                <button
+                  type="button"
+                  className="btn btn-custom-1 d-none d-md-block d-lg-block"
+                >
                   {'view more >'}
                 </button>
               </div>
