@@ -48,11 +48,15 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|pdf|ico)$/,
+        test: /\.(jpe?g|png|gif|pdf|ico|svg)$/,
         use: [
           'file-loader?name=images/[name].[ext]',
           'image-webpack-loader',
         ],
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)(\?.*$|$)/,
+        use: 'file-loader?name=fonts/[name].[ext]',
       },
     ],
   },
