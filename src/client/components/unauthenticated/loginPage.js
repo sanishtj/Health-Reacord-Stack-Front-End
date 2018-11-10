@@ -1,5 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import {
+  Element,
+  animateScroll as scroll,
+} from 'react-scroll';
 
 import fakeAuth from './fakeAuth';
 import MemberManageSteps from './presentational/memberManageSteps';
@@ -26,6 +30,7 @@ class loginPage extends React.Component {
     this.setState(() => ({
       showMemberManage: true,
     }));
+    scroll.scrollTo(500);
   };
 
   hideMemberManage = () => {
@@ -33,6 +38,7 @@ class loginPage extends React.Component {
       showMemberManage: false,
     }));
   };
+
 
   render() {
     return (
@@ -84,6 +90,7 @@ class loginPage extends React.Component {
                     'as five to restrict commercial uses. You are allowed to add, update, and remove your family members.'
                   }
                 </p>
+
                 <button
                   type="button"
                   onClick={this.showMemberManage}
@@ -91,6 +98,7 @@ class loginPage extends React.Component {
                 >
                   {'view more >'}
                 </button>
+
               </div>
             </div>
           </div>
@@ -165,7 +173,11 @@ class loginPage extends React.Component {
         </div>
         <div id="bottomframe">
           <div className="row">
-            <div className="col">Login Form</div>
+            <div className="col">
+              <Element name="loginForm" className="element">
+                {'Here goes the login form'}
+              </Element>
+            </div>
           </div>
         </div>
       </div>

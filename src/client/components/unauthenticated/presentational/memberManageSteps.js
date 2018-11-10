@@ -4,23 +4,79 @@ export default function MemberManageSteps({ hideMemberManage }) {
   return (
     <div className="mx-auto" style={{ width: '500px' }}>
       <div className="row">
-        <div className="col">dsfdsfsd</div>
-        <div className="col">sdfsdf</div>
-        <div className="col">dsfsdf</div>
+        <div className="col">
+          <div>
+            <img
+              src="/images/ManageMedicalHistory.png"
+              alt="add family members"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div>
+            <p>
+              sfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd
+              sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd
+              sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf
+              sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sfsdfd sdfsdfds sdfsdfd
+              sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd
+              sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf
+              sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds
+              sdfsdfd sdfsdf sdfdsfdsf sdfdsfdsf
+            </p>
+          </div>
+        </div>
+        <div className="col">
+          <div>
+            <img
+              src="/images/ManageMedicalHistory.png"
+              alt="add family members"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div>
+            <p>
+              sfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd
+              sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd
+              sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf
+              sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sfsdfd sdfsdfds sdfsdfd
+              sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd
+              sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf
+              sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds
+              sdfsdfd sdfsdf sdfdsfdsf sdfdsfdsf
+            </p>
+          </div>
+        </div>
+        <div className="col">
+          <div>
+            <img
+              src="/images/ManageMedicalHistory.png"
+              alt="add family members"
+              className="img-fluid rounded"
+            />
+          </div>
+          <div>
+            <p>
+              sfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd
+              sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd
+              sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf
+              sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sfsdfd sdfsdfds sdfsdfd
+              sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd
+              sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf
+              sdfdsfdsfsfsdfd sdfsdfds sdfsdfd sdfsdf sdfdsfdsfsfsdfd sdfsdfds
+              sdfsdfd sdfsdf sdfdsfdsf sdfdsfdsf
+            </p>
+          </div>
+        </div>
       </div>
       <div className="mx-auto" style={{ width: '50px' }}>
-        <button type="button" className="btn btn-warning btn-circle btn-lg" onClick={hideMemberManage}>
+        <button
+          type="button"
+          className="btn btn-circle btn-lg"
+          onClick={hideMemberManage}
+        >
           <i className="fa fa-times-circle-o" />
         </button>
       </div>
     </div>
-
-  // <div className="d-flex justify-content-center bd-highlight mb-3">
-  //   <div className="p-2 bd-highlight">
-  //     <button type="button" onClick={hideMemberManage}>
-  //       close
-  //     </button>
-  //   </div>
-  // </div>
   );
 }

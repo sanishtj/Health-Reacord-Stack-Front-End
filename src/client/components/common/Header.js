@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
 const Header = () => (
   <header>
@@ -8,16 +9,19 @@ const Header = () => (
           <a className="navbar-brand" href="#">
             Website Logo
           </a>
+          <Link
+            to="loginForm"
+            spy
+            smooth
+            offset={50}
+            duration={1000}
+          >
+            Login
+          </Link>
         </div>
         <ul className="nav list-inline">
-          <li className="list-inline-item">
-
-              welcome
-
-          </li>
-          <li className="list-inline-item">
-                Settings
-          </li>
+          <li className="list-inline-item">welcome</li>
+          <li className="list-inline-item">Settings</li>
         </ul>
       </div>
     </nav>
