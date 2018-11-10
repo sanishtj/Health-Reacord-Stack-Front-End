@@ -1,8 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import 'video.js/dist/video-js.min.css';
 
-// // import $ from 'jquery';
-// // import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import $ from 'jquery';
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '../styles/hrs.css';
 
 import React from 'react';

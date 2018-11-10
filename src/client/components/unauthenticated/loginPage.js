@@ -5,19 +5,37 @@ import Modal from 'react-modal';
 
 import fakeAuth from './fakeAuth';
 import MemberManageSteps from './presentational/memberManageSteps';
+import VideoPlayer from './presentational/videoPlayer';
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
+    border: '0',
+    borderRadius: '4px',
     bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    minHeight: '10rem',
+    left: '50%',
+    padding: '2px',
+    position: 'fixed',
+    right: 'auto',
+    top: '50%',
+    transform: 'translate(-50%,-50%)',
+    minWidth: '20rem',
+    width: '80%',
+    maxWidth: '60rem',
   },
 };
 
-// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+const videoJsOptions = {
+  autoplay: true,
+  controls: true,
+  sources: [
+    {
+      src: '/videos/1.mp4',
+      type: 'video/mp4',
+    },
+  ],
+};
+
 Modal.setAppElement('#root');
 
 class loginPage extends React.Component {
@@ -64,7 +82,7 @@ class loginPage extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    //this.subtitle.style.color = '#f00';
+    // this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -92,20 +110,31 @@ class loginPage extends React.Component {
             <div className="col">
               <button
                 type="button"
-                onClick={this.openModal}
                 className="btn btn-custom-2 header_title"
+                onClick={this.openModal}
               >
                 {'HOW IT WORKS'}
               </button>
               <Modal
+                style={customStyles}
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
+                overlayClassName="modal_Overlay"
               >
-                <div>Test model</div>
-                <button type="button" onClick={this.closeModal}>close</button>
+                <button
+                  type="button"
+                  className="btn btn-circle btn-lg"
+                  onClick={this.closeModal}
+                >
+                  <i className="fa fa-times-circle-o" />
+                </button>
+                <div className="test">
+                  <VideoPlayer {...videoJsOptions} />
+                </div>
+                {/* <button type="button" onClick={this.closeModal}>
+                  close
+                </button> */}
               </Modal>
             </div>
           </div>

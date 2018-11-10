@@ -102,6 +102,7 @@
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.3.0",
     "toastr": "^2.1.4",
+    "video.js": "^7.3.0",
     "webpack": "^4.22.0"
   }
 }
