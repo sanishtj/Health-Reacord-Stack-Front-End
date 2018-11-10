@@ -2,14 +2,14 @@ import React from 'react';
 
 export default function MemberManageSteps({ hideMemberManage }) {
   return (
-    <div className="mx-auto" style={{ width: '500px' }}>
+    <div className="mx-auto" style={{ width: '850px' }}>
       <div className="row">
         <div className="col">
           <div>
             <img
-              src="/images/ManageMedicalHistory.png"
+              src="http://placehold.it/300"
               alt="add family members"
-              className="img-fluid rounded"
+              className="img-fluid rounded-circle"
             />
           </div>
           <div>
@@ -28,9 +28,9 @@ export default function MemberManageSteps({ hideMemberManage }) {
         <div className="col">
           <div>
             <img
-              src="/images/ManageMedicalHistory.png"
+              src="http://placehold.it/300"
               alt="add family members"
-              className="img-fluid rounded"
+              className="img-fluid rounded-circle"
             />
           </div>
           <div>
@@ -49,9 +49,9 @@ export default function MemberManageSteps({ hideMemberManage }) {
         <div className="col">
           <div>
             <img
-              src="/images/ManageMedicalHistory.png"
+              src="http://placehold.it/300"
               alt="add family members"
-              className="img-fluid rounded"
+              className="img-fluid rounded-circle"
             />
           </div>
           <div>

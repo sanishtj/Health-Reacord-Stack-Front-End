@@ -74,6 +74,23 @@
     border: 2px solid #fff;
   }
 
+  .btn-custom-2 {    
+    font-size: 13px;
+    color: #575560;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid #ffffff;
+    border-radius: 40px;
+    background: #ffffff;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .btn-custom-2:hover {
+    color: #575560;
+    background:#eeeeee;
+    border: 2px solid #eeeeee;
+  }
+
   .btn-default {
     font-family: Raleway-SemiBold;
     font-size: 13px;

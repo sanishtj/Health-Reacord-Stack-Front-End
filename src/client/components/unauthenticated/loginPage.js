@@ -1,21 +1,40 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import {
-  Element,
-  animateScroll as scroll,
-} from 'react-scroll';
+import { Element, animateScroll as scroll } from 'react-scroll';
+import Modal from 'react-modal';
 
 import fakeAuth from './fakeAuth';
 import MemberManageSteps from './presentational/memberManageSteps';
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+// Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#root');
 
 class loginPage extends React.Component {
   constructor(props) {
     super(props);
     // eslint-disable-next-line react/no-unused-state
-    this.state = { redirectToReferrer: false, showMemberManage: false };
+    this.state = {
+      redirectToReferrer: false,
+      showMemberManage: false,
+      modalIsOpen: false,
+    };
     this.login = this.login.bind(this);
     this.showMemberManage = this.showMemberManage.bind(this);
     this.hideMemberManage = this.hideMemberManage.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   login = () => {
@@ -39,6 +58,18 @@ class loginPage extends React.Component {
     }));
   };
 
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    //this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
 
   render() {
     return (
@@ -59,9 +90,23 @@ class loginPage extends React.Component {
           </div>
           <div className="row">
             <div className="col">
-              <button type="button" className="btn btn-default header_title">
+              <button
+                type="button"
+                onClick={this.openModal}
+                className="btn btn-custom-2 header_title"
+              >
                 {'HOW IT WORKS'}
               </button>
+              <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+                style={customStyles}
+                contentLabel="Example Modal"
+              >
+                <div>Test model</div>
+                <button type="button" onClick={this.closeModal}>close</button>
+              </Modal>
             </div>
           </div>
         </div>
@@ -98,7 +143,6 @@ class loginPage extends React.Component {
                 >
                   {'view more >'}
                 </button>
-
               </div>
             </div>
           </div>
