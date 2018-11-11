@@ -115,6 +115,7 @@ class loginPage extends React.Component {
               >
                 {'HOW IT WORKS'}
               </button>
+ 
               <Modal
                 style={customStyles}
                 isOpen={this.state.modalIsOpen}
@@ -122,13 +123,7 @@ class loginPage extends React.Component {
                 onRequestClose={this.closeModal}
                 overlayClassName="modal_Overlay"
               >
-                <button
-                  type="button"
-                  className="btn btn-circle btn-lg"
-                  onClick={this.closeModal}
-                >
-                  <i className="fa fa-times-circle-o" />
-                </button>
+               
                 <div className="test">
                   <VideoPlayer {...videoJsOptions} />
                 </div>
