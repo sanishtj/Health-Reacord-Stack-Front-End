@@ -2,65 +2,35 @@
 import React from 'react';
 import { Element, animateScroll as scroll } from 'react-scroll';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import fakeAuth from './fakeAuth';
 import MemberManageSteps from './presentational/memberManageSteps';
 import VideoPlayer from './presentational/videoPlayer';
-
-const customStyles = {
-  content: {
-    border: '0',
-    borderRadius: '4px',
-    bottom: 'auto',
-    minHeight: '10rem',
-    left: '50%',
-    padding: '2px',
-    position: 'fixed',
-    right: 'auto',
-    top: '50%',
-    transform: 'translate(-50%,-50%)',
-    minWidth: '20rem',
-    width: '80%',
-    maxWidth: '60rem',
-  },
-};
-
-const videoJsOptions = {
-  autoplay: true,
-  controls: true,
-  sources: [
-    {
-      src: '/videos/1.mp4',
-      type: 'video/mp4',
-    },
-  ],
-};
+import LoginForm from './LoginForm';
+import * as properties from './properties/externalProperties';
+import * as userActions from '../../actions/userActions';
 
 Modal.setAppElement('#root');
 
-class loginPage extends React.Component {
+class loginPage extends React.PureComponent {
   constructor(props) {
     super(props);
-    // eslint-disable-next-line react/no-unused-state
+
     this.state = {
-      redirectToReferrer: false,
       showMemberManage: false,
-      modalIsOpen: false,
+      modalIsOpen: false,   
     };
-    this.login = this.login.bind(this);
+    
     this.showMemberManage = this.showMemberManage.bind(this);
     this.hideMemberManage = this.hideMemberManage.bind(this);
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.onLogin = this.onLogin.bind(this);
   }
 
-  login = () => {
-    fakeAuth.authenticate(() => {
-      this.setState(() => ({
-        redirectToReferrer: true,
-      }));
-    });
+  onLogin = (username, password) => {
+    this.props.actions.login(username, password);
   };
 
   showMemberManage = () => {
@@ -78,11 +48,6 @@ class loginPage extends React.Component {
 
   openModal() {
     this.setState({ modalIsOpen: true });
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -115,21 +80,18 @@ class loginPage extends React.Component {
               >
                 {'HOW IT WORKS'}
               </button>
- 
+
               <Modal
-                style={customStyles}
+                style={properties.customStyles}
                 isOpen={this.state.modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.closeModal}
                 overlayClassName="modal_Overlay"
               >
-               
+
                 <div className="test">
-                  <VideoPlayer {...videoJsOptions} />
+                  <VideoPlayer {...properties.videoJsOptions} />
                 </div>
-                {/* <button type="button" onClick={this.closeModal}>
-                  close
-                </button> */}
               </Modal>
             </div>
           </div>
@@ -243,7 +205,9 @@ class loginPage extends React.Component {
           <div className="row">
             <div className="col">
               <Element name="loginForm" className="element">
-                {'Here goes the login form'}
+                <LoginForm onLogin={this.onLogin} />
+                {/* <RegisterForm />
+                <ForgotPasswordForm />                 */}
               </Element>
             </div>
           </div>
@@ -253,4 +217,19 @@ class loginPage extends React.Component {
   }
 }
 
-export default loginPage;
+function mapStatetoProps(state, ownprops) {
+  return {
+    authuser: state.authuser,
+  };
+}
+
+function mapDispatchtoProps(dispatch) {
+  return {
+    actions: bindActionCreators(userActions, dispatch),
+  };
+}
+
+export default connect(
+  mapStatetoProps,
+  mapDispatchtoProps,
+)(loginPage);
