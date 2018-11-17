@@ -1,6 +1,6 @@
 {
   "Server": {
-    "port": "1525"
+    "port": "1313"
   },
   "apiUrl": "http://localhost:4000"
 }

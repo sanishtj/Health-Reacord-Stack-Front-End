@@ -219,3 +219,18 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
   }
+
+  header .navbar{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  header .navbar .container-fluid{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .fix-unauth-menu{
+    right:0;
+    position: absolute;
+  }

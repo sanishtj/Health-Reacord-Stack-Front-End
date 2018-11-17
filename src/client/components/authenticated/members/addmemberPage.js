@@ -17,7 +17,7 @@ class addmemberPage extends React.PureComponent {
   }
 
   textInputChange(event) {
-    this.setState({ member: { FullName: event.target.value } });
+    this.setState(() => ({ member: { FullName: event.target.value } }));
   }
 
   addMember(event) {
@@ -28,9 +28,9 @@ class addmemberPage extends React.PureComponent {
 
   render() {
     return (
-      
-        
-        <form className="needs-validation page" noValidate>
+
+
+      <form className="needs-validation page" noValidate>
           <div className="form-row">
             <div className="col-md-6 mb-3">
               <label htmlFor="Name">Name</label>
@@ -53,10 +53,11 @@ class addmemberPage extends React.PureComponent {
             onClick={this.addMember}
           >
 
+
             Submit form
-</button>
+                    </button>
         </form>
-     
+
     );
   }
 }

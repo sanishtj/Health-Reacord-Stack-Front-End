@@ -6,14 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <meta name="apple-mobile-web-app-title" content="" />
+   <!-- <meta name="apple-mobile-web-app-title" content="" />
     <link rel="icon" href="" type="image/x-icon" />
-    <link rel="apple-touch-icon-precomposed" href="" />
+    <link rel="apple-touch-icon-precomposed" href="" /> -->
+    <link rel="icon" type="image/png" href="/images/Icon-HR.png" />
     <link rel="stylesheet" type="" href="/vendors.css">
     <link rel="stylesheet" type="" href="/main.css">
   </head>
   <body class="backgroudcolor">
     <div id='root'><%- initialContent -%></div>
+    <script>       
+           window.initialState = <%- JSON.stringify(preloadedState) -%>;
+          // <%- preloadedState -%>
+    </script>
     <script src="./vendors.bundle.js"></script>
     <script src="./main.bundle.js"></script>
   </body>

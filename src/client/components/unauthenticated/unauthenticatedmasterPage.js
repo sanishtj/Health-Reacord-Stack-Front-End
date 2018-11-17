@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Header from '../common/Header';
+import UnAthenticatedHeader from './presentational/unauthenticatedHeader';
 import Footer from '../common/Footer';
 import UnAuthenticatedContainer from './UnAuthenticatedContainer';
-
 
 class unauthenticatedmasterPage extends React.PureComponent {
   constructor(props) {
@@ -14,7 +13,7 @@ class unauthenticatedmasterPage extends React.PureComponent {
   render() {
     return (
       <div className="container">
-        <Header />
+        <UnAthenticatedHeader />
         <UnAuthenticatedContainer />
         <Footer />
       </div>

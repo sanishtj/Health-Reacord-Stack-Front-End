@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 
-const user = JSON.parse(localStorage.getItem('user'));
+const user = typeof localStorage !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
 const initialState = user ? { loggedIn: true, user } : {};
 
 export default function authentication(state = initialState, action) {

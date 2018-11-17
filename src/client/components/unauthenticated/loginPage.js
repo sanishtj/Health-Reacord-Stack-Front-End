@@ -19,9 +19,9 @@ class loginPage extends React.PureComponent {
 
     this.state = {
       showMemberManage: false,
-      modalIsOpen: false,   
+      modalIsOpen: false,
     };
-    
+
     this.showMemberManage = this.showMemberManage.bind(this);
     this.hideMemberManage = this.hideMemberManage.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -47,11 +47,15 @@ class loginPage extends React.PureComponent {
   };
 
   openModal() {
-    this.setState({ modalIsOpen: true });
+    this.setState(() => ({
+      modalIsOpen: true,
+    }));
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState(() => ({
+      modalIsOpen: false,
+    }));
   }
 
   render() {
