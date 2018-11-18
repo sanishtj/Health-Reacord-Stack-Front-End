@@ -14,7 +14,7 @@ class unauthenticatedmasterPage extends React.PureComponent {
     return (
       <div className="container">
         <UnAthenticatedHeader />
-        <UnAuthenticatedContainer />
+        <UnAuthenticatedContainer />        
         <Footer />
       </div>
     );

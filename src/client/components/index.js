@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import 'toastr/build/toastr.css';
 import 'video.js/dist/video-js.min.css';
 
 import $ from 'jquery';

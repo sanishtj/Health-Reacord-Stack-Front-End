@@ -5,6 +5,7 @@ import { Element, animateScroll as scroll } from 'react-scroll';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import toastr from 'toastr';
 
 import MemberManageSteps from './presentational/memberManageSteps';
 import VideoPlayer from './presentational/videoPlayer';
@@ -12,6 +13,8 @@ import LoginForm from './presentational/LoginForm';
 import * as properties from './properties/externalProperties';
 import * as userActions from '../../actions/userActions';
 import fakeAuth from './fakeAuth';
+import RegisterForm from './presentational/RegisterForm';
+import ForgotPasswordForm from './presentational/ForgotPasswordForm';
 
 Modal.setAppElement('#root');
 
@@ -24,9 +27,16 @@ class loginPage extends React.Component {
       modalIsOpen: false,
       email: '',
       password: '',
+      fullname: '',
+      confirmpassword: '',
+      isLoginForm: false,
+      isRegisterForm: false,
+      isForgotPasswordForm: true,
       isEmailValid: { valid: false, errors: [] },
       isPasswordValid: { valid: false, errors: [] },
-      isFormValid: false,
+      isFullNameValid: { valid: false, errors: [] },
+      isConfirmPasswordValid: { valid: false, errors: [] },
+      isFormValid: { valid: false, errors: [] },
       redirectToReferrer: false,
     };
 
@@ -35,13 +45,43 @@ class loginPage extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.onLogin = this.onLogin.bind(this);
+    this.onRegister = this.onRegister.bind(this);
+    this.onForgotPassword = this.onForgotPassword.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
   }
+
+  onForgotPassword = () => {
+    toastr.options = {
+      positionClass: 'toast-bottom-right',
+    };
+    toastr.info('We have send a reset password link to your email.');
+    this.setState(() => ({
+      isLoginForm: true,
+      isRegisterForm: false,
+      isForgotPasswordForm: false,
+    }));
+  };
+
+  onRegister = () => {
+    toastr.options = {
+      positionClass: 'toast-bottom-right',
+    };
+    toastr.success(
+      'Congratulations !! Please activate your account using the link that we have sent you in your email.',
+    );
+
+    this.setState(() => ({
+      isLoginForm: true,
+      isRegisterForm: false,
+      isForgotPasswordForm: false,
+    }));
+  };
 
   onLogin = () => {
     fakeAuth.authenticate(() => {
       this.setState(() => ({
-        redirectToReferrer: true,
+        redirectToReferrer: false,
+        isFormValid: { valid: false, errors: ['No User Found'] },
       }));
     });
     // this.props.actions.login(username, password);
@@ -74,10 +114,14 @@ class loginPage extends React.Component {
 
   validateField(fieldName, value) {
     const emailValid = this.state.isEmailValid;
+    const fullnameValid = this.state.isFullNameValid;
     const passwordValid = this.state.isPasswordValid;
+    const confirmPasswordValid = this.state.isConfirmPasswordValid;
 
     emailValid.errors = [];
+    fullnameValid.errors = [];
     passwordValid.errors = [];
+    confirmPasswordValid.errors = [];
 
     switch (fieldName) {
       case 'email':
@@ -87,6 +131,23 @@ class loginPage extends React.Component {
         );
         if (!emailValid.valid) {
           emailValid.errors.push('Please enter a valid email');
+        }
+        break;
+      case 'fullname':
+        // eslint-disable-next-line no-useless-escape
+        fullnameValid.valid = /^[a-z\s]+$/.test(String(value).toLowerCase());
+        if (!fullnameValid.valid) {
+          fullnameValid.errors.push('Please enter a valid name');
+        } else {
+          fullnameValid.valid = value.length >= 4;
+          if (!fullnameValid.valid) {
+            fullnameValid.errors.push('Name must be more than 4 characters');
+          } else {
+            fullnameValid.valid = value.length <= 25;
+            if (!fullnameValid.valid) {
+              fullnameValid.errors.push('Name must be less than 25 characters');
+            }
+          }
         }
         break;
       case 'password':
@@ -104,6 +165,28 @@ class loginPage extends React.Component {
           }
         }
         break;
+      case 'confirmpassword':
+        confirmPasswordValid.valid = value.length >= 6;
+        if (!confirmPasswordValid.valid) {
+          confirmPasswordValid.errors.push(
+            'Password length must be more than 6 characters',
+          );
+        } else {
+          confirmPasswordValid.valid = value.length <= 12;
+          if (!confirmPasswordValid.valid) {
+            confirmPasswordValid.errors.push(
+              'Password length must be less than 12 characters',
+            );
+          } else {
+            confirmPasswordValid.valid = this.state.password === value;
+            if (!confirmPasswordValid.valid) {
+              confirmPasswordValid.errors.push(
+                'Password and confirm password must match',
+              );
+            }
+          }
+        }
+        break;
       default:
         break;
     }
@@ -111,7 +194,16 @@ class loginPage extends React.Component {
     this.setState(() => ({
       isEmailValid: emailValid,
       isPasswordValid: passwordValid,
-      isFormValid: emailValid.valid && passwordValid.valid,
+      isFormValid: {
+        valid:
+          (this.state.isLoginForm && emailValid.valid && passwordValid.valid)
+          || (this.state.isRegisterForm
+            && fullnameValid.valid
+            && emailValid.valid
+            && passwordValid.valid
+            && confirmPasswordValid.valid)
+          || (this.state.isForgotPasswordForm && emailValid.valid),
+      },
     }));
   }
 
@@ -130,7 +222,7 @@ class loginPage extends React.Component {
     }
 
     return (
-      <div>
+      <div className="page">
         <div id="topframe" className="mb-20">
           <div className="row tagline">
             <div className="col">
@@ -278,17 +370,43 @@ class loginPage extends React.Component {
           <div className="row">
             <div className="col">
               <Element name="loginForm" className="element">
-                <LoginForm
-                  onLogin={this.onLogin}
-                  email={this.state.email}
-                  password={this.state.password}
-                  handleUserInput={this.handleUserInput}
-                  isEmailValid={this.state.isEmailValid}
-                  isPasswordValid={this.state.isPasswordValid}
-                  isFormValid={this.state.isFormValid}
-                />
-                {/* <RegisterForm />
-                <ForgotPasswordForm />                 */}
+                {this.state.isLoginForm ? (
+                  <LoginForm
+                    onLogin={this.onLogin}
+                    email={this.state.email}
+                    password={this.state.password}
+                    handleUserInput={this.handleUserInput}
+                    isEmailValid={this.state.isEmailValid}
+                    isPasswordValid={this.state.isPasswordValid}
+                    isFormValid={this.state.isFormValid}
+                  />
+                ) : null}
+
+                {this.state.isRegisterForm ? (
+                  <RegisterForm
+                    onRegister={this.onRegister}
+                    email={this.state.email}
+                    fullname={this.state.fullname}
+                    password={this.state.password}
+                    confirmpassword={this.state.confirmpassword}
+                    handleUserInput={this.handleUserInput}
+                    isEmailValid={this.state.isEmailValid}
+                    isFullNameValid={this.state.isFullNameValid}
+                    isPasswordValid={this.state.isPasswordValid}
+                    isConfirmPasswordValid={this.state.isConfirmPasswordValid}
+                    isFormValid={this.state.isFormValid}
+                  />
+                ) : null}
+
+                {this.state.isForgotPasswordForm ? (
+                  <ForgotPasswordForm
+                    onForgotPassword={this.onForgotPassword}
+                    email={this.state.email}
+                    handleUserInput={this.handleUserInput}
+                    isEmailValid={this.state.isEmailValid}
+                    isFormValid={this.state.isFormValid}
+                  />
+                ) : null}
               </Element>
             </div>
           </div>

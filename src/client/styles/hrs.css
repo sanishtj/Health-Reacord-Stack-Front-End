@@ -2,6 +2,7 @@
     position: absolute;   
     left: 0;
     right: 0;
+    margin-bottom: 50px;   
 }
 
 .fade-enter{
@@ -253,4 +254,22 @@
   .fix-unauth-menu{
     right:0;
     position: absolute;
+  }
+
+  .error { border: 1px solid red; }
+
+  .form-control-feedback {color: red}
+
+  button:disabled {
+    cursor: not-allowed;
+  } 
+
+  button:enabled {
+    cursor: pointer;
+  } 
+
+  footer{
+    position: fixed;
+    bottom: 0;
+    height: 50px;
   }

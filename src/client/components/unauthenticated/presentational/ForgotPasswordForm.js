@@ -2,7 +2,7 @@ import React from 'react';
 
 import Textbox from './textbox';
 
-export default function LoginForm(props) {
+export default function ForgotPasswordForm(props) {
   return (
     <div>
       <div className="d-flex justify-content-center bd-highlight">
@@ -14,7 +14,7 @@ export default function LoginForm(props) {
             <fieldset>
               <div className="form-group">
                 <div className="row">
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-12">
                     <Textbox
                       isPropertyValid={props.isEmailValid}
                       name="email"
@@ -23,18 +23,7 @@ export default function LoginForm(props) {
                       value={props.email}
                       onChange={props.handleUserInput}
                     />
-                  </div>
-
-                  <div className="col-sm-12 col-md-6">
-                    <Textbox
-                      isPropertyValid={props.isPasswordValid}
-                      name="password"
-                      type="password"
-                      placeholder="Password"
-                      value={props.password}
-                      onChange={props.handleUserInput}
-                    />
-                  </div>
+                  </div>                  
                 </div>
               </div>
             </fieldset>
@@ -54,9 +43,9 @@ export default function LoginForm(props) {
               type="button"
               className="btn btn-custom-3"
               disabled={!props.isFormValid.valid}
-              onClick={props.onLogin}
+              onClick={props.onForgotPassword}
             >
-              Login
+              Reset Password
             </button>
           </form>
         </div>

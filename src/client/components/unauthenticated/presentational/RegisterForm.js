@@ -2,11 +2,11 @@ import React from 'react';
 
 import Textbox from './textbox';
 
-export default function LoginForm(props) {
+export default function RegisterForm(props) {
   return (
     <div>
       <div className="d-flex justify-content-center bd-highlight">
-        <h3 className="p-2 m-0">Login</h3>
+        <h3 className="p-2 m-0">Register</h3>
       </div>
       <div className="d-flex justify-content-center bd-highlight">
         <div className="p-2 m-0">
@@ -14,6 +14,17 @@ export default function LoginForm(props) {
             <fieldset>
               <div className="form-group">
                 <div className="row">
+                  <div className="col-sm-12 col-md-6">
+                    <Textbox
+                      isPropertyValid={props.isFullNameValid}
+                      name="fullname"
+                      type="text"
+                      placeholder="Full Name"
+                      value={props.fullname}
+                      onChange={props.handleUserInput}
+                    />
+                  </div>
+
                   <div className="col-sm-12 col-md-6">
                     <Textbox
                       isPropertyValid={props.isEmailValid}
@@ -24,7 +35,8 @@ export default function LoginForm(props) {
                       onChange={props.handleUserInput}
                     />
                   </div>
-
+                </div>
+                <div className="row mt-2">
                   <div className="col-sm-12 col-md-6">
                     <Textbox
                       isPropertyValid={props.isPasswordValid}
@@ -32,6 +44,17 @@ export default function LoginForm(props) {
                       type="password"
                       placeholder="Password"
                       value={props.password}
+                      onChange={props.handleUserInput}
+                    />
+                  </div>
+
+                  <div className="col-sm-12 col-md-6">
+                    <Textbox
+                      isPropertyValid={props.isConfirmPasswordValid}
+                      name="confirmpassword"
+                      type="password"
+                      placeholder="Confirm Password"
+                      value={props.confirmpassword}
                       onChange={props.handleUserInput}
                     />
                   </div>
@@ -54,18 +77,13 @@ export default function LoginForm(props) {
               type="button"
               className="btn btn-custom-3"
               disabled={!props.isFormValid.valid}
-              onClick={props.onLogin}
+              onClick={props.onRegister}
             >
-              Login
+              Register
             </button>
           </form>
         </div>
       </div>
-      {/* <div className="d-flex justify-content-center bd-highlight">
-          <div className="p-2 m-0">
-
-          </div>
-        </div> */}
     </div>
   );
 }
