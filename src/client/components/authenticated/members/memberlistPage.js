@@ -23,7 +23,7 @@ class memberlistPage extends React.PureComponent {
   render() {
     return (
       <div className="page">
-        <div>{this.props.members.map(this.memberRow)}</div>
+        
       </div>
     );
   }

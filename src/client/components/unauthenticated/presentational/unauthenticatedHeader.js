@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-scroll';
 
 const UnAthenticatedHeader = props => (
-  <header>
+  <header className="whitecontainercolor">
     <nav className="navbar navbar-light sticky-top">
       <div className="container-fluid">
         <div className="navbar-header">
@@ -12,12 +12,11 @@ const UnAthenticatedHeader = props => (
             <img
               src="/images/Logo-HR.png"
               className="img-fluid"
-              alt="Health Record Stack Logo"
-              style={{ width: '50%' }}
+              alt="Health Record Stack Logo"              
             />
           </a>
         </div>
-        <ul className="nav list-inline">
+        <ul className="nav navbar-nav navbar-right">
           <li className="nav-item dropdown">
             <button
               className="navbar-toggler"

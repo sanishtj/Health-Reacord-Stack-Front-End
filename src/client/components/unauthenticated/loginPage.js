@@ -30,7 +30,6 @@ class loginPage extends React.Component {
       password: '',
       fullname: '',
       confirmpassword: '',
-      loadingClass: '',
       isEmailValid: { valid: false, errors: [] },
       isPasswordValid: { valid: false, errors: [] },
       isFullNameValid: { valid: false, errors: [] },
@@ -47,7 +46,7 @@ class loginPage extends React.Component {
     this.onRegister = this.onRegister.bind(this);
     this.onForgotPassword = this.onForgotPassword.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
-  }  
+  }
 
   componentDidMount = () => {
     this.props.actions.showLoginForm();
@@ -72,8 +71,8 @@ class loginPage extends React.Component {
   onLogin = () => {
     fakeAuth.authenticate(() => {
       this.setState(() => ({
-        redirectToReferrer: false,
-        isFormValid: { valid: false, errors: ['No User Found'] },
+        redirectToReferrer: true,
+        // isFormValid: { valid: false, errors: ['No User Found'] },
       }));
     });
     // this.props.actions.login(username, password);
@@ -214,7 +213,7 @@ class loginPage extends React.Component {
     }
 
     return (
-      <div className="page">
+      <div className="page container">
         <div id="topframe" className="mb-20 rounded">
           <div className="row tagline">
             <div className="col">

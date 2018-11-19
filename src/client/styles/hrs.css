@@ -246,11 +246,6 @@ header .navbar {
   padding-right: 0 !important;
 }
 
-header .navbar .container-fluid {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
 .fix-unauth-menu {
   right: 0;
   position: absolute;
@@ -280,4 +275,8 @@ footer {
   padding: 20px 0 20px 0;
   border-top: 1px #ccd4da dotted;
   margin-top: 10px; 
+}
+
+.dropdown-toggle::after {
+  display:none;
 }
