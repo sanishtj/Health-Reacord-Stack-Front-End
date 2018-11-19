@@ -29,9 +29,6 @@ class loginPage extends React.Component {
       password: '',
       fullname: '',
       confirmpassword: '',
-      isLoginForm: false,
-      isRegisterForm: false,
-      isForgotPasswordForm: true,
       isEmailValid: { valid: false, errors: [] },
       isPasswordValid: { valid: false, errors: [] },
       isFullNameValid: { valid: false, errors: [] },
@@ -50,16 +47,15 @@ class loginPage extends React.Component {
     this.handleUserInput = this.handleUserInput.bind(this);
   }
 
+  componentDidMount = () => {
+    this.props.actions.showLoginForm();
+  };
+
   onForgotPassword = () => {
     toastr.options = {
       positionClass: 'toast-bottom-right',
     };
     toastr.info('We have send a reset password link to your email.');
-    this.setState(() => ({
-      isLoginForm: true,
-      isRegisterForm: false,
-      isForgotPasswordForm: false,
-    }));
   };
 
   onRegister = () => {
@@ -69,12 +65,6 @@ class loginPage extends React.Component {
     toastr.success(
       'Congratulations !! Please activate your account using the link that we have sent you in your email.',
     );
-
-    this.setState(() => ({
-      isLoginForm: true,
-      isRegisterForm: false,
-      isForgotPasswordForm: false,
-    }));
   };
 
   onLogin = () => {
@@ -196,13 +186,13 @@ class loginPage extends React.Component {
       isPasswordValid: passwordValid,
       isFormValid: {
         valid:
-          (this.state.isLoginForm && emailValid.valid && passwordValid.valid)
-          || (this.state.isRegisterForm
+          (this.props.isLoginForm && emailValid.valid && passwordValid.valid)
+          || (this.props.isRegisterForm
             && fullnameValid.valid
             && emailValid.valid
             && passwordValid.valid
             && confirmPasswordValid.valid)
-          || (this.state.isForgotPasswordForm && emailValid.valid),
+          || (this.props.isForgotPasswordForm && emailValid.valid),
       },
     }));
   }
@@ -370,7 +360,7 @@ class loginPage extends React.Component {
           <div className="row">
             <div className="col">
               <Element name="loginForm" className="element">
-                {this.state.isLoginForm ? (
+                {this.props.isLoginForm ? (
                   <LoginForm
                     onLogin={this.onLogin}
                     email={this.state.email}
@@ -382,7 +372,7 @@ class loginPage extends React.Component {
                   />
                 ) : null}
 
-                {this.state.isRegisterForm ? (
+                {this.props.isRegisterForm ? (
                   <RegisterForm
                     onRegister={this.onRegister}
                     email={this.state.email}
@@ -398,7 +388,7 @@ class loginPage extends React.Component {
                   />
                 ) : null}
 
-                {this.state.isForgotPasswordForm ? (
+                {this.props.isForgotPasswordForm ? (
                   <ForgotPasswordForm
                     onForgotPassword={this.onForgotPassword}
                     email={this.state.email}
@@ -419,6 +409,9 @@ class loginPage extends React.Component {
 function mapStatetoProps(state, ownprops) {
   return {
     authuser: state.authuser,
+    isLoginForm: state.authuser.isLoginForm,
+    isRegisterForm: state.authuser.isRegisterForm,
+    isForgotPasswordForm: state.authuser.isForgotPasswordForm,
   };
 }
 

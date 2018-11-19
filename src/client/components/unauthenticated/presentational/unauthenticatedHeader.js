@@ -1,7 +1,9 @@
-import React from "react";
-import { Link } from "react-scroll";
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React from 'react';
+import { Link } from 'react-scroll';
 
-const UnAthenticatedHeader = () => (
+const UnAthenticatedHeader = props => (
   <header>
     <nav className="navbar navbar-light sticky-top">
       <div className="container-fluid">
@@ -11,9 +13,9 @@ const UnAthenticatedHeader = () => (
               src="/images/Logo-HR.png"
               className="img-fluid"
               alt="Health Record Stack Logo"
-              style={{ width: "50%" }}
+              style={{ width: '50%' }}
             />
-          </a>         
+          </a>
         </div>
         <ul className="nav list-inline">
           <li className="nav-item dropdown">
@@ -25,24 +27,54 @@ const UnAthenticatedHeader = () => (
               aria-controls="navbarToggleExternalContent"
               aria-expanded="false"
               aria-label="Toggle navigation"
+              onClick={() => {
+                props.onMenuButtonClicked();
+              }}
             >
               <span className="navbar-toggler-icon" />
             </button>
-            <div className="collapse fix-unauth-menu" id="navbarToggleExternalContent">
+            <div className={props.menuClass} id="navbarToggleExternalContent">
               <div className="">
                 <ul className="dropdown-menu show dropdown-menu-right">
                   <li className="dropdown-item">
-                    <Link to="loginForm" spy smooth offset={50} duration={1000}>
+                    <Link
+                      onClick={() => {
+                        props.onMenuClicked('login');
+                      }}
+                      to="loginForm"
+                      spy
+                      smooth
+                      offset={50}
+                      duration={1000}
+                    >
                       Login
                     </Link>
                   </li>
                   <li className="dropdown-item">
-                    <Link to="loginForm" spy smooth offset={50} duration={1000}>
+                    <Link
+                      onClick={() => {
+                        props.onMenuClicked('register');
+                      }}
+                      to="loginForm"
+                      spy
+                      smooth
+                      offset={50}
+                      duration={1000}
+                    >
                       Register
                     </Link>
                   </li>
                   <li className="dropdown-item">
-                    <Link to="loginForm" spy smooth offset={50} duration={1000}>
+                    <Link
+                      onClick={() => {
+                        props.onMenuClicked('forgotpassword');
+                      }}
+                      to="loginForm"
+                      spy
+                      smooth
+                      offset={50}
+                      duration={1000}
+                    >
                       Forgot Password
                     </Link>
                   </li>

@@ -6,7 +6,7 @@ export default function ForgotPasswordForm(props) {
   return (
     <div>
       <div className="d-flex justify-content-center bd-highlight">
-        <h3 className="p-2 m-0">Login</h3>
+        <h3 className="p-2 m-0">Forgot Password</h3>
       </div>
       <div className="d-flex justify-content-center bd-highlight">
         <div className="p-2 m-0">
@@ -14,7 +14,7 @@ export default function ForgotPasswordForm(props) {
             <fieldset>
               <div className="form-group">
                 <div className="row">
-                  <div className="col-sm-12 col-md-12">
+                  <div className="col-sm-12 col-md-12 mb-2">
                     <Textbox
                       isPropertyValid={props.isEmailValid}
                       name="email"

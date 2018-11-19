@@ -31,6 +31,19 @@ export function login(username, password) {
   };
 }
 
+export function showLoginForm() {
+  return { type: actionTypes.SHOW_LOGIN };
+}
+
+export function showRegisterForm() {
+  return { type: actionTypes.SHOW_REGISTER };
+}
+
+export function showForgotPasswordForm() {
+  return { type: actionTypes.SHOW_FORGOTPASSWORD };
+}
+
+
 // export function logout() {
 //   userService.logout();
 //   return { type: userConstants.LOGOUT };

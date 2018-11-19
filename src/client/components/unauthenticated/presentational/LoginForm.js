@@ -14,7 +14,7 @@ export default function LoginForm(props) {
             <fieldset>
               <div className="form-group">
                 <div className="row">
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-6 mb-2">
                     <Textbox
                       isPropertyValid={props.isEmailValid}
                       name="email"
@@ -25,7 +25,7 @@ export default function LoginForm(props) {
                     />
                   </div>
 
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-6 mb-2">
                     <Textbox
                       isPropertyValid={props.isPasswordValid}
                       name="password"

@@ -8,3 +8,6 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const ALERT_SUCCESS = 'ALERT_SUCCESS';
 export const ALERT_ERROR = 'ALERT_ERROR';
 export const ALERT_CLEAR = 'ALERT_CLEAR';
+export const SHOW_LOGIN = 'SHOW_LOGIN';
+export const SHOW_REGISTER = 'SHOW_REGISTER';
+export const SHOW_FORGOTPASSWORD = 'SHOW_FORGOTPASSWORD';

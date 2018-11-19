@@ -14,7 +14,7 @@ export default function RegisterForm(props) {
             <fieldset>
               <div className="form-group">
                 <div className="row">
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-6 mb-2">
                     <Textbox
                       isPropertyValid={props.isFullNameValid}
                       name="fullname"
@@ -25,7 +25,7 @@ export default function RegisterForm(props) {
                     />
                   </div>
 
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-6 mb-2">
                     <Textbox
                       isPropertyValid={props.isEmailValid}
                       name="email"
@@ -37,7 +37,7 @@ export default function RegisterForm(props) {
                   </div>
                 </div>
                 <div className="row mt-2">
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-6 mb-2">
                     <Textbox
                       isPropertyValid={props.isPasswordValid}
                       name="password"
@@ -48,7 +48,7 @@ export default function RegisterForm(props) {
                     />
                   </div>
 
-                  <div className="col-sm-12 col-md-6">
+                  <div className="col-sm-12 col-md-6 mb-2">
                     <Textbox
                       isPropertyValid={props.isConfirmPasswordValid}
                       name="confirmpassword"
