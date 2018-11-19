@@ -35,7 +35,7 @@ class unauthenticatedmasterPage extends React.Component {
           menuClass={this.state.menuClass}
         />
         <UnAuthenticatedContainer />
-        <Footer />
+        
       </div>
     );
   }

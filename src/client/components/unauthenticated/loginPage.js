@@ -15,6 +15,7 @@ import * as userActions from '../../actions/userActions';
 import fakeAuth from './fakeAuth';
 import RegisterForm from './presentational/RegisterForm';
 import ForgotPasswordForm from './presentational/ForgotPasswordForm';
+import Footer from '../common/Footer';
 
 Modal.setAppElement('#root');
 
@@ -29,6 +30,7 @@ class loginPage extends React.Component {
       password: '',
       fullname: '',
       confirmpassword: '',
+      loadingClass: '',
       isEmailValid: { valid: false, errors: [] },
       isPasswordValid: { valid: false, errors: [] },
       isFullNameValid: { valid: false, errors: [] },
@@ -45,7 +47,7 @@ class loginPage extends React.Component {
     this.onRegister = this.onRegister.bind(this);
     this.onForgotPassword = this.onForgotPassword.bind(this);
     this.handleUserInput = this.handleUserInput.bind(this);
-  }
+  }  
 
   componentDidMount = () => {
     this.props.actions.showLoginForm();
@@ -213,7 +215,7 @@ class loginPage extends React.Component {
 
     return (
       <div className="page">
-        <div id="topframe" className="mb-20">
+        <div id="topframe" className="mb-20 rounded">
           <div className="row tagline">
             <div className="col">
               <div className="text-white text-left">
@@ -401,6 +403,7 @@ class loginPage extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
