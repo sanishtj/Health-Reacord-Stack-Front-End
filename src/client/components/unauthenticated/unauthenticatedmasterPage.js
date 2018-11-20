@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import UnAthenticatedHeader from './presentational/unauthenticatedHeader';
-import Footer from '../common/Footer';
 import UnAuthenticatedContainer from './UnAuthenticatedContainer';
 import * as userActions from '../../actions/userActions';
 
@@ -34,8 +33,7 @@ class unauthenticatedmasterPage extends React.Component {
           onMenuClicked={this.onMenuClicked}
           menuClass={this.state.menuClass}
         />
-        <UnAuthenticatedContainer />
-        
+        <UnAuthenticatedContainer />        
       </div>
     );
   }
