@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as memberActions from '../../../actions/memberActions';
+import PageHeader from '../../common/PageHeader';
+import PageHelp from '../../common/PageHelp';
+import MemberList from './memberList';
 
 class memberlistPage extends React.PureComponent {
   constructor(props) {
@@ -12,18 +15,19 @@ class memberlistPage extends React.PureComponent {
 
   componentDidMount() {
     // TODO: This needs to be done using shouldcomponetupdate
-    if(!this.props.members || this.props.members.length == 0)
-    this.props.actions.fetchMembers();
-  }
-
-  memberRow(member, index) {
-    return <div key={index}>{member.FullName}</div>;
+    if (!this.props.members || this.props.members.length == 0) {
+      this.props.actions.fetchMembers();
+    }
   }
 
   render() {
     return (
-      <div className="page">
-        Test
+      <div className="page container pt-20">
+        <PageHeader headerText="Your Family Members" headerIcon="fa-users" />
+        <PageHelp helpText="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id at officia doloremque 
+        incidunt praesentium fuga voluptatum, earum nemo! In, at ex. Necessitatibus non, asperiores 
+        cum natus nam ducimus quisquam iure!" />
+        <MemberList members={this.props.members} />
       </div>
     );
   }
@@ -40,7 +44,6 @@ function mapDispatchtoProps(dispatch) {
     actions: bindActionCreators(memberActions, dispatch),
   };
 }
-
 
 export default connect(
   mapStatetoProps,

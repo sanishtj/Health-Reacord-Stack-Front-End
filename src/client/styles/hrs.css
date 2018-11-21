@@ -1,7 +1,7 @@
 .page {
   position: absolute;
   left: 0;
-  right: 0; 
+  right: 0;
 }
 
 .fade-enter {
@@ -224,6 +224,10 @@
   padding-left: 6rem!important;
 }
 
+.pt-20 {
+  padding-top: 20px;
+}
+
 .pr-24, .px-24 {
   padding-right: 6rem!important;
 }
@@ -274,17 +278,16 @@ button:enabled {
 footer {
   padding: 20px 0 20px 0;
   border-top: 1px #ccd4da dotted;
-  margin-top: 10px; 
-
+  margin-top: 10px;
 }
 
-.authenticated footer{
+.authenticated footer {
   position: absolute;
   width: 73%;
 }
 
 .dropdown-toggle:after {
-  display:none;
+  display: none;
 }
 
 header .user-details .user-menu>a i {
@@ -296,10 +299,10 @@ header .user-details .user-menu>a i {
 a {
   transition: all .3s ease-in-out;
   outline: 0!important;
-  color:#414142
+  color: #414142
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
   color: #2bbb3e;
 }
@@ -314,43 +317,43 @@ a:hover{
   white-space: nowrap;
 }
 
-.user-details>.user-info{
+.user-details>.user-info {
   margin-right: 10px;
 }
 
 .left-nav ul li>a i {
   width: 50px;
-  height: 40px;
+  height: 55px;
   font-size: 1.3em;
   padding-top: 20px;
   text-align: center;
   transition: -webkit-transform .5s;
   transition: transform .5s;
-  transition: transform .5s,-webkit-transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
 }
 
 .left-nav .menu-on li a span {
-  display: block; 
-  height: 40px;
+  display: block;
+  height: 55px;
   padding-top: 24px;
 }
 
-.left-nav ul li>a span {  
+.left-nav ul li>a span {
   font-size: .8em;
   display: none;
-  font-family: OpenSans-Regular-webfont,arial,sans-serif;
-  font-weight: bold;  
+  font-family: OpenSans-Regular-webfont, arial, sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
   transition: -webkit-transform .5s;
   transition: transform .5s;
-  transition: transform .5s,-webkit-transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
 }
 
 .left-nav, .left-nav ul li>a i, .left-nav ul li>a span {
   float: left;
 }
 
-.left-nav { 
+.left-nav {
   height: 100%;
 }
 
@@ -364,4 +367,92 @@ a:hover{
   float: left;
 }
 
+.left-nav ul li {
+  list-style: none;
+  display: block;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+}
 
+.card-icon {
+  font-size: 70px;
+  margin-right: .3em;
+  min-width: 50px;
+  width: 50px;
+  float: left;
+}
+
+.card-header .pull-right i {
+  font-size: 1.3em;
+}
+
+
+/* Extra Small */
+@media (max-width: 575px) {
+  h3 {
+    font-size: 1.20rem;
+  }
+
+  .card-header-adjust{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 175px;
+  }
+}
+
+/* Small */
+@media (min-width: 576px) and (max-width: 767px) {
+  h3 {
+    font-size: 1.20rem;
+  }
+
+  .card-header-adjust{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 175px;
+  }
+}
+
+/* Medium */
+@media (min-width: 768px) and (max-width: 991px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  .card-header-adjust{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
+  }
+}
+
+/* Large */
+@media (min-width: 992px) and (max-width: 1199px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  .card-header-adjust{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
+  }
+}
+
+/* Extra Large */
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  .card-header-adjust{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
+  }
+}

@@ -25,7 +25,7 @@ const Header = () => (
               data-toggle="dropdown"
               aria-expanded="false"
             >
-              <i className="fa fa-cog" />
+              <i className="fa fa-gear fa-spin" />
             </a>
             <ul className="dropdown-menu dropdown-menu-right">
               <li className="dropdown-item">

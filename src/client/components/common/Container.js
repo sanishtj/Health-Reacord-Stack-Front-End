@@ -25,18 +25,48 @@ const Container = () => (
         Share Medical Histories
       </Link> */}
         <aside className="left-nav">
-          <nav vbleftnavigation="" className="menu-on">
+          <nav className="menu-on">
             <ul>
               <li>
                 <Link to="/members">
-                  <i className="fa fa-tachometer" />
-                  <span>Members</span>
+                  <i className="fa fa-home" />
+                  <span>&nbsp;</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/members">
+                  <i className="fa fa-user-plus" />
+                  <span>Add Member</span>
                 </Link>
               </li>
               <li>
                 <Link to="/members/1">
-                  <i className="fa fa-tachometer" />
+                  <i className="fa fa-user" />
                   <span>Member Details</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/members/1">
+                  <i className="fa fa-pencil-square-o" />
+                  <span>Edit Member</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/members/1">
+                  <i className="fa fa-file-text" />
+                  <span>View Medical History</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/members/1">
+                  <i className="fa fa-cogs" />
+                  <span>Settings</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/members/1">
+                  <i className="fa fa-power-off" />
+                  <span>Logout</span>
                 </Link>
               </li>
             </ul>
