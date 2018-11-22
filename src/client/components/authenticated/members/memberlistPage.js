@@ -24,18 +24,22 @@ class memberlistPage extends React.PureComponent {
     return (
       <div className="page container pt-20">
         <PageHeader headerText="Your Family Members" headerIcon="fa-users" />
-        <PageHelp helpText="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id at officia doloremque 
-        incidunt praesentium fuga voluptatum, earum nemo! In, at ex. Necessitatibus non, asperiores 
-        cum natus nam ducimus quisquam iure!" />
-        <MemberList members={this.props.members} />
+        <PageHelp helpText="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id at officia doloremque
+        incidunt praesentium fuga voluptatum, earum nemo! In, at ex. Necessitatibus non, asperiores
+        cum natus nam ducimus quisquam iure!"
+        />
+        <MemberList memberProps={this.props.memberProps} />
       </div>
     );
   }
 }
 
 function mapStatetoProps(state) {
+  debugger;
   return {
-    members: state.members,
+    memberProps: state.memberProps,
+    // members: state.memberProps.members,
+    // pageMenu: state.memberProps.pageMenu,
   };
 }
 

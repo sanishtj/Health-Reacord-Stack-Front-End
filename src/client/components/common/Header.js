@@ -18,7 +18,7 @@ const Header = () => (
               <span className="user-name text-right">Welcome Sanish Joseph</span>             
             </div>
           </div>
-          <div className="user-menu dropdown  pull-right">
+          <div className="user-menu dropdown pull-right">
             <a
               href="#Menu"
               className="dropdown-toggle"

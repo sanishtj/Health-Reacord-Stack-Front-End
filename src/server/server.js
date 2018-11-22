@@ -19,9 +19,6 @@ app.set('views', path.join(__dirname, '/views'));
 app.get('/*', (req, res) => {
   // Create a new Redux store instance
   const store = createStore(rootReducer, applyMiddleware(thunk, reduximmutablestateinvariant()));
-  console.log('-------------------');
-  console.log(store);
-  console.log('-------------------');
   // Grab the initial state from our Redux store
   const preloadedState = store.getState();
   const initialContent = serverRender(req.url, store);

@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 
 import configureStore from '../store/configureStore';
 import App from './App';
+import ScrollToTop from './common/ScrollToTop';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.initialState;
@@ -26,7 +27,9 @@ const store = configureStore(preloadedState);
 hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'),

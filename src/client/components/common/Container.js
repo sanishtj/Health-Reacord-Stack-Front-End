@@ -83,33 +83,38 @@ const Container = () => (
                 timeout={10000}
               >
                 <Switch location={location}>
-                  <Route exact path="/" component={memberlistPage} />
-                  <Route exact path="/members" component={memberlistPage} />
+                  <Route exact path="/" component={memberlistPage} onUpdate={() => window.scrollTo(0, 0)} />
+                  <Route exact path="/members" component={memberlistPage} onUpdate={() => window.scrollTo(0, 0)} />
                   <Route
                     exact
                     path="/members/:memberid"
                     component={memberdetailsPage}
+                    onUpdate={() => window.scrollTo(0, 0)}
                   />
                   <Route exact path="/member/add" component={addmemberPage} />
                   <Route
                     exact
                     path="/members/update/:memberid"
                     component={updatememberPage}
+                    onUpdate={() => window.scrollTo(0, 0)}
                   />
                   <Route
                     exact
                     path="/medicalhistories/:memberid"
                     component={medicalhistorylistPage}
+                    onUpdate={() => window.scrollTo(0, 0)}
                   />
                   <Route
                     exact
                     path="/medicalhistories/:memberid/add"
                     component={addmedicalhistoryPage}
+                    onUpdate={() => window.scrollTo(0, 0)}
                   />
                   <Route
                     exact
                     path="/medicalhistories/:memberid/share"
                     component={sharemedicalhistoryPage}
+                    onUpdate={() => window.scrollTo(0, 0)}
                   />
                 </Switch>
               </CSSTransition>
@@ -119,7 +124,7 @@ const Container = () => (
       </div>
     </div>
 
-    <Footer />
+    {/* <Footer /> */}
   </div>
 );
 

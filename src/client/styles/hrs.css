@@ -382,10 +382,13 @@ a:hover {
   float: left;
 }
 
-.card-header .pull-right i {
+.card-header .pull-right .dropdown-toggle i {
   font-size: 1.3em;
 }
 
+.click-menu .dropdown-toggle{
+  cursor: pointer;
+}
 
 /* Extra Small */
 @media (max-width: 575px) {
